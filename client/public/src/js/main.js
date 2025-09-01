@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // --- Page Initializers ---
   initNavbar();
 
-  if (document.querySelector(".hero-section")) {
+  if (document.querySelector(".hero")) {
     initVideoPage();
   }
   if (document.getElementById("register-form")) {
