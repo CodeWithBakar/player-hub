@@ -2,10 +2,7 @@ const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
 const { initializeDatabase } = require("./config/database");
-const {
-  getAllPlayers,
-  registerPlayer,
-} = require("./controllers/playerController");
+const playerRoutes = require("./routes/playerRoutes");
 
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -19,14 +16,11 @@ app.get("/", (req, res) => {
   res.status(200).send("Player Hub API is running!");
 });
 
-app.get("/api/players", getAllPlayers);
-app.post("/api/register", registerPlayer);
+app.use("/api", playerRoutes);
 
 const startServer = async () => {
   try {
-    // Ensure the database is initialized before the server starts
     await initializeDatabase();
-
     app.listen(PORT, HOST, () => {
       console.log(`Server is running and listening on http://${HOST}:${PORT}`);
     });
