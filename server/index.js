@@ -15,7 +15,7 @@ const HOST = "0.0.0.0";
 app.use(
   cors({
     origin: [
-      "https://player-hub-012.netlify.app/",
+      "https://app.netlify.com/projects/player-hub-012",
       "http://localhost:3000",
       "http://localhost:5173",
     ],
