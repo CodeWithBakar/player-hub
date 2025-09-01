@@ -1,3 +1,4 @@
+// This file handles all DOM interactions and event listeners.
 import { getPlayers, registerPlayer } from "./api.js";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -5,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initNavbar();
 
   if (document.querySelector(".hero-section")) {
-    initHomePage();
+    initVideoPage();
   }
   if (document.getElementById("register-form")) {
     initRegisterPage();
@@ -30,15 +31,40 @@ function initNavbar() {
   }
 }
 
-// --- Home Page Logic (Hero & Videos) ---
-function initHomePage() {
+// --- Video Page Logic ---
+function initVideoPage() {
   const videoGrid = document.querySelector(".video-grid");
   const modal = document.getElementById("video-modal");
   const videoPlayer = document.getElementById("video-player");
   const closeButton = document.querySelector(".close-button");
 
-  if (!videoGrid || !modal) return; // Exit if elements aren't found
+  // Only run if the video grid exists on the page
+  if (!videoGrid) return;
 
+  // Your list of video IDs
+  const videoIds = [
+    "oSIDK_qMxqM",
+    "LavH7audJww",
+    "AlXgSXIpchc",
+    "X918VVC1NTA",
+    "Dw4L6qR46ik",
+    "SdTTEhOlsu0",
+    "tAlSp2yTvAA",
+    "iEvhfCx1u2A",
+  ];
+
+  videoGrid.innerHTML = videoIds
+    .map(
+      (id) => `
+        <div class="video-thumbnail" data-video-id="${id}">
+            <img src="https://img.youtube.com/vi/${id}/hqdefault.jpg" alt="Video Thumbnail">
+            <div class="play-icon">&#9658;</div>
+        </div>
+    `
+    )
+    .join("");
+
+  // Event listener to open the modal when a thumbnail is clicked
   videoGrid.addEventListener("click", (e) => {
     const thumbnail = e.target.closest(".video-thumbnail");
     if (thumbnail) {
@@ -48,6 +74,7 @@ function initHomePage() {
     }
   });
 
+  // Logic to close the video modal
   const closeModal = () => {
     modal.style.display = "none";
     videoPlayer.innerHTML = "";
@@ -63,10 +90,9 @@ function initRegisterPage() {
   const messageEl = document.getElementById("form-message");
 
   form.addEventListener("submit", async (e) => {
-    e.preventDefault(); // This will now correctly prevent the default form submission
+    e.preventDefault();
     const formData = new FormData(form);
     const data = Object.fromEntries(formData.entries());
-
     const result = await registerPlayer(data);
 
     if (result.ok) {
@@ -137,13 +163,6 @@ function initContactPage() {
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-    if (SERVICE_ID === "YOUR_SERVICE_ID") {
-      messageEl.textContent =
-        "EmailJS is not configured. Add your IDs in js/main.js.";
-      messageEl.className = "error";
-      return;
-    }
-
     emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form).then(
       () => {
         messageEl.textContent = "Message sent successfully!";
