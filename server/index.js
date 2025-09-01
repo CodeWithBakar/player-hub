@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
-const initializeDatabase = require("./config/database");
+require("./config/database");
 const playerRoutes = require("./routes/playerRoutes");
 
 const app = express();
@@ -11,12 +11,10 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-// Initialize Database
-initializeDatabase();
-
 // API Routes
 app.use("/api", playerRoutes);
 
+// Listen on the assigned port and the host '0.0.0.0' to accept public connections
 app.listen(PORT, "0.0.0.0", () => {
   console.log(`Server is running and listening on port ${PORT}`);
 });
