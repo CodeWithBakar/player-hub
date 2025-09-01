@@ -33,7 +33,7 @@ function initNavbar() {
 
 // --- Video Page Logic ---
 function initVideoPage() {
-  const videoGrid = document.querySelector(".video-grid");
+  const videoGrid = document.getElementById("video-grid");
   const modal = document.getElementById("video-modal");
   const videoPlayer = document.getElementById("video-player");
   const closeButton = document.querySelector(".close-button");
