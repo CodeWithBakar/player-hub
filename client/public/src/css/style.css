@@ -1,9 +1,12 @@
+/* --- ENHANCED UI STYLESHEET V2 --- */
+
+/* 1. Root Variables & Global Styles */
 :root {
-  --primary-color: #4f46e5; /* A modern indigo */
+  --primary-color: #4f46e5;
   --primary-hover: #4338ca;
-  --secondary-color: #111827; /* Near-black for text */
-  --muted-text: #6b7280; /* Gray for subtitles */
-  --background-color: #f9fafb; /* Very light gray */
+  --secondary-color: #111827;
+  --muted-text: #6b7280;
+  --background-color: #f9fafb;
   --card-background: #ffffff;
   --border-color: #e5e7eb;
   --success-color: #10b981;
@@ -15,42 +18,41 @@
   --border-radius: 0.5rem;
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 * {
   box-sizing: border-box;
 }
-
+html {
+  scroll-behavior: smooth;
+}
 body {
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Helvetica, Arial, sans-serif;
+  font-family: "Inter", sans-serif;
   margin: 0;
   background-color: var(--background-color);
   color: var(--secondary-color);
   line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
-
 .container {
   max-width: 1280px;
   margin: 4rem auto;
   padding: 0 2rem;
 }
-
 h1 {
   font-size: 2.5rem;
-  font-weight: 700;
+  font-weight: 800;
   text-align: center;
   margin-bottom: 1rem;
   color: var(--secondary-color);
+  letter-spacing: -0.025em;
 }
-
 .page-subtitle {
   text-align: center;
   color: var(--muted-text);
   font-size: 1.125rem;
   margin-top: 0;
   margin-bottom: 4rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* 2. Navigation Bar */
@@ -71,6 +73,9 @@ h1 {
   align-items: center;
 }
 .nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--primary-color);
@@ -87,7 +92,7 @@ h1 {
   color: var(--primary-color);
 }
 .nav-toggle {
-  display: none; /* Hidden on desktop */
+  display: none;
   background: none;
   border: none;
   cursor: pointer;
@@ -109,7 +114,67 @@ h1 {
   background-color: var(--background-color);
 }
 
-/* 3. Video Grid & Modal */
+/* 3. Hero Section */
+.hero {
+  background-color: var(--card-background);
+  text-align: center;
+  padding: 2rem;
+  border-bottom: 1px solid var(--border-color);
+  min-height: calc(100vh - 65px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+.hero-subtitle {
+  font-size: 1.25rem;
+  margin-bottom: 2.5rem;
+  color: var(--muted-text);
+}
+.hero-cta {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* 4. Buttons */
+.btn {
+  display: inline-block;
+  padding: 0.9rem 1.75rem;
+  border: 1px solid transparent;
+  border-radius: 0.375rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  text-decoration: none;
+}
+.btn-primary {
+  background: var(--primary-color);
+  color: white;
+}
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+}
+.btn-secondary {
+  background-color: var(--card-background);
+  color: var(--primary-color);
+  border-color: var(--border-color);
+}
+.btn-secondary:hover {
+  background-color: var(--background-color);
+  border-color: var(--primary-color);
+}
+
+/* 5. Video Grid & Modal */
 .video-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -192,7 +257,7 @@ h1 {
   border-radius: var(--border-radius);
 }
 
-/* 4. Forms */
+/* 6. Forms */
 .styled-form {
   background: var(--card-background);
   padding: 2.5rem;
@@ -224,22 +289,6 @@ h1 {
   border-color: var(--primary-color);
   box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
 }
-.btn {
-  display: block;
-  width: 100%;
-  padding: 0.9rem;
-  background: var(--primary-color);
-  color: white;
-  border: none;
-  border-radius: 0.375rem;
-  font-size: 1.1rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: var(--transition);
-}
-.btn:hover {
-  background-color: var(--primary-hover);
-}
 #form-message,
 #contact-form-message {
   text-align: center;
@@ -256,7 +305,7 @@ h1 {
   color: var(--danger-color);
 }
 
-/* 5. Player Table & Filters */
+/* 7. Player Table & Filters */
 .filters {
   margin-bottom: 1.5rem;
 }
@@ -300,7 +349,7 @@ h1 {
   background-color: var(--background-color);
 }
 
-/* 6. Footer */
+/* 8. Footer */
 .site-footer {
   text-align: center;
   padding: 2rem;
@@ -309,10 +358,16 @@ h1 {
   border-top: 1px solid var(--border-color);
 }
 
-/* 7. Responsive Design */
+/* 9. Responsive Design */
 @media (max-width: 768px) {
   h1 {
     font-size: 2rem;
+  }
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  .hero {
+    padding: 4rem 1rem;
   }
   .container {
     margin: 2rem auto;
