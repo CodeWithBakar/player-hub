@@ -1,27 +1,24 @@
-// This file handles all DOM interactions and event listeners.
 import { getPlayers, registerPlayer } from "./api.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-  const page = window.location.pathname;
-
   // --- Page Initializers ---
   initNavbar();
 
-  if (page.includes("index.html") || page === "/") {
-    initVideoPage();
+  if (document.querySelector(".hero-section")) {
+    initHomePage();
   }
-  if (page.includes("register.html")) {
+  if (document.getElementById("register-form")) {
     initRegisterPage();
   }
-  if (page.includes("players.html")) {
+  if (document.getElementById("player-table")) {
     initPlayersPage();
   }
-  if (page.includes("contact.html")) {
+  if (document.getElementById("contact-form")) {
     initContactPage();
   }
 });
 
-// --- NEW: Navbar Logic ---
+// --- Navbar Logic ---
 function initNavbar() {
   const navToggle = document.getElementById("nav-toggle");
   const mobileNav = document.getElementById("mobile-nav");
@@ -33,41 +30,14 @@ function initNavbar() {
   }
 }
 
-// --- Video Page Logic ---
-function initVideoPage() {
-  document
-    .querySelector("h1")
-    .insertAdjacentHTML(
-      "afterend",
-      '<p class="page-subtitle">Curated highlights and tutorials from the best in the game.</p>'
-    );
-
-  const videoGrid = document.getElementById("video-grid");
+// --- Home Page Logic (Hero & Videos) ---
+function initHomePage() {
+  const videoGrid = document.querySelector(".video-grid");
   const modal = document.getElementById("video-modal");
   const videoPlayer = document.getElementById("video-player");
   const closeButton = document.querySelector(".close-button");
 
-  const videoIds = [
-    "a18py61_F_w",
-    "u5UIU55Ctoo",
-    "cC9eRT6anfk",
-    "tExc5EOZ1DY",
-    "3wG79nMMcDI",
-    "fL80SYLNY5A",
-    "PqdmKQYSizA",
-    "ZcrxNdpABPc",
-  ];
-
-  videoGrid.innerHTML = videoIds
-    .map(
-      (id) => `
-        <div class="video-thumbnail" data-video-id="${id}">
-            <img src="https://img.youtube.com/vi/${id}/hqdefault.jpg" alt="Video Thumbnail">
-            <div class="play-icon">&#9658;</div>
-        </div>
-    `
-    )
-    .join("");
+  if (!videoGrid || !modal) return; // Exit if elements aren't found
 
   videoGrid.addEventListener("click", (e) => {
     const thumbnail = e.target.closest(".video-thumbnail");
@@ -89,18 +59,11 @@ function initVideoPage() {
 
 // --- Registration Page Logic ---
 function initRegisterPage() {
-  document
-    .querySelector("h1")
-    .insertAdjacentHTML(
-      "afterend",
-      '<p class="page-subtitle">Join our community and get listed on the official roster.</p>'
-    );
-
   const form = document.getElementById("register-form");
   const messageEl = document.getElementById("form-message");
 
   form.addEventListener("submit", async (e) => {
-    e.preventDefault();
+    e.preventDefault(); // This will now correctly prevent the default form submission
     const formData = new FormData(form);
     const data = Object.fromEntries(formData.entries());
 
@@ -121,13 +84,6 @@ function initRegisterPage() {
 
 // --- Player List Page Logic ---
 function initPlayersPage() {
-  document
-    .querySelector("h1")
-    .insertAdjacentHTML(
-      "afterend",
-      '<p class="page-subtitle">Browse and search for all registered community members.</p>'
-    );
-
   const tableBody = document.getElementById("player-table-body");
   const searchInput = document.getElementById("search-input");
   let allPlayers = [];
@@ -135,7 +91,7 @@ function initPlayersPage() {
   const renderPlayers = (players) => {
     tableBody.innerHTML = "";
     if (players.length === 0) {
-      tableBody.innerHTML = `<tr><td colspan="5" style="text-align: center; padding: 2rem;">No players found matching your search.</td></tr>`;
+      tableBody.innerHTML = `<tr><td colspan="5" style="text-align: center; padding: 2rem;">No players have been registered yet.</td></tr>`;
       return;
     }
     players.forEach((p) => {
@@ -169,13 +125,6 @@ function initPlayersPage() {
 
 // --- Contact Page Logic ---
 function initContactPage() {
-  document
-    .querySelector("h1")
-    .insertAdjacentHTML(
-      "afterend",
-      '<p class="page-subtitle">Have questions or feedback? We’d love to hear from you.</p>'
-    );
-
   const form = document.getElementById("contact-form");
   const messageEl = document.getElementById("contact-form-message");
 
