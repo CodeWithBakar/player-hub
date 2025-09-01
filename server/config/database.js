@@ -1,32 +1,34 @@
-const sqlite3 = require("sqlite3").verbose();
-const path = require("path");
-// const dbPath = path.resolve(__dirname, "../database.sqlite");
-
-const dbPath = path.resolve("/data", "../database.sqlite");
-
-const db = new sqlite3.Database(dbPath, (err) => {
-  if (err) {
-    console.error("Error opening database:", err.message);
-  } else {
-    console.log("Connected to the SQLite database.");
-    const createTableSql = `
-            CREATE TABLE IF NOT EXISTS players (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                name TEXT NOT NULL,
-                age INTEGER NOT NULL,
-                email TEXT NOT NULL UNIQUE,
-                team TEXT,
-                position TEXT
-            )
-        `;
-    db.run(createTableSql, (err) => {
-      if (err) {
-        console.error("Error creating players table:", err.message);
-      } else {
-        console.log("Players table created or already exists.");
-      }
-    });
-  }
+const { Pool } = require("pg");
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  // Add SSL configuration for production connections
+  ssl: {
+    rejectUnauthorized: false,
+  },
 });
 
-module.exports = db;
+const initializeDatabase = async () => {
+  try {
+    const createTableQuery = `
+      CREATE TABLE IF NOT EXISTS players (
+        id SERIAL PRIMARY KEY,
+        name VARCHAR(255) NOT NULL,
+        age INT NOT NULL,
+        email VARCHAR(255) UNIQUE NOT NULL,
+        team VARCHAR(255),
+        "position" VARCHAR(255)
+      );
+    `;
+    await pool.query(createTableQuery);
+    console.log("PostgreSQL database connected and table is ready.");
+  } catch (err) {
+    console.error("Error initializing PostgreSQL database:", err);
+    // Exit the process if the database connection fails, as the app cannot run without it.
+    process.exit(1);
+  }
+};
+
+module.exports = {
+  pool,
+  initializeDatabase,
+};
