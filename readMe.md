@@ -1,105 +1,119 @@
-Player Hub - Full-Stack Web Application
-Player Hub is a responsive web application built with a modern, decoupled client-server architecture. It provides a platform for users to register as players, browse a searchable list of all registered players, view a gallery of embedded YouTube videos, and get in touch via a functional contact form.
+⚽ Player Hub – Full-Stack Web Application
+Player Hub is a responsive full-stack web application built with a modern, decoupled client-server architecture. It provides a seamless platform for users to register as players, browse a searchable list of all registered players, watch embedded YouTube videos, and connect through a functional contact form.
 
-Features
-YouTube Video Gallery: Displays a grid of video thumbnails. Clicking a video opens it in a clean, responsive modal player.
+✨ Features
+🎬 YouTube Video Gallery – Grid of video thumbnails with a clean, responsive modal player.
 
-Player Registration: A validation-enabled form to register new players with details like name, age, email, team, and position.
+📝 Player Registration – Form with validation for details like name, age, email, team, and position.
 
-Dynamic Player Listing: A searchable and filterable table that displays all registered players from the database in real-time.
+📊 Dynamic Player Listing – Searchable, filterable player table with real-time updates.
 
-Functional Contact Form: A secure contact form integrated with EmailJS to send inquiries directly to an email address without a dedicated mail server.
+📩 Functional Contact Form – Integrated with EmailJS to send inquiries without a mail server.
 
-Client-Server Architecture: A professional project structure that separates the frontend (client) from the backend (server) for better scalability and maintenance.
+🏗 Client–Server Architecture – Frontend and backend separated for scalability and maintainability.
 
-Tech Stack
-This project is built with a focus on robust, fundamental web technologies.
+🛠 Tech Stack
+🔹 Frontend (Client)
+HTML5, CSS3 (modern features, custom properties)
 
-Frontend (Client):
+Vanilla JavaScript (ES6+ modules)
 
-HTML5
+live-server for local development
 
-CSS3 (with modern features like custom properties)
-
-Vanilla JavaScript (ES6+ Modules)
-
-live-server for development
-
-Backend (Server):
-
+🔹 Backend (Server)
 Node.js
 
 Express.js
 
-SQLite3 (for the database)
+SQLite3 (lightweight database)
 
-cors for handling cross-origin requests
+cors – Handle cross-origin requests
 
-dotenv for environment variable management
+dotenv – Manage environment variables
 
-Getting Started
-To get a local copy up and running, follow these simple steps.
+🚀 Getting Started
+Follow these steps to set up Player Hub locally.
 
-Prerequisites
-Node.js (which includes npm) installed on your machine.
+✅ Prerequisites
+Node.js (with npm) installed on your machine.
 
-Installation & Setup
-Clone the repository:
-
+⚡ Installation & Setup
+1. Clone the repository
 git clone [https://github.com/your-username/player-hub.git](https://github.com/your-username/player-hub.git)
 cd player-hub
 
-Setup the Backend Server:
-
+2. Setup the Backend
 # Navigate to the server directory
 cd server
 
-# Install NPM packages
+# Install dependencies
 npm install
 
-# Create the environment file (copy from the example)
+# Create env file
 cp .env.example .env
 
-# Start the server
+# Start server
 npm start
 
-The server will be running on http://localhost:3000.
+The backend will be available at http://localhost:3000.
 
-Setup the Frontend Client (in a new terminal window):
-
-# Navigate to the client directory from the root
+3. Setup the Frontend (in a new terminal)
+# Navigate to client directory
 cd client
 
-# Install NPM packages
+# Install dependencies
 npm install
 
-# Start the client development server
+# Start client server
 npm start
 
-This command will automatically open your browser to http://localhost:8080.
+The frontend will be available at http://localhost:8080.
 
-Configuration
+⚙️ Configuration
 Contact Form (EmailJS)
-To make the contact form functional, you need to sign up for a free account at EmailJS.com and get your credentials.
+To enable the contact form:
 
-Create an Email Service and an Email Template in your EmailJS dashboard.
+Create a free account at EmailJS.com.
 
-Open client/src/js/main.js.
+Set up an Email Service and Template in your dashboard.
 
-Inside the initContactPage function, replace the placeholder values with your actual keys:
+Replace placeholders in client/src/js/main.js with your credentials:
 
 const SERVICE_ID = 'YOUR_SERVICE_ID';
 const TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
 const PUBLIC_KEY = 'YOUR_PUBLIC_KEY';
 
-Project Structure
-The project uses a monorepo structure with two distinct applications:
-
+📂 Project Structure
 player-hub/
-├── client/     # Frontend application (UI)
-└── server/     # Backend application (API & Database)
+├── client/          # Frontend application (UI)
+│   ├── public/
+│   └── src/
+│       ├── css/
+│       └── js/
+│
+└── server/          # Backend application (API & Database)
+    ├── config/
+    ├── controllers/
+    ├── routes/
+    └── index.js
 
-This separation allows for independent development, deployment, and scaling of the frontend and backend.
+This monorepo structure allows independent development, deployment, and scaling of the frontend and backend.
 
-License
+📜 License
 Distributed under the MIT License. See LICENSE for more information.
+
+🙌 Contributing
+Contributions are welcome! 🎉
+
+Fork the Project
+
+Create your Feature Branch (git checkout -b feature/AmazingFeature)
+
+Commit your Changes (git commit -m 'Add some AmazingFeature')
+
+Push to the Branch (git push origin feature/AmazingFeature)
+
+Open a Pull Request
+
+📧 Contact
+For inquiries, reach out via the contact form in the application.
