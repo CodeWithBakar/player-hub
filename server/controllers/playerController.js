@@ -4,6 +4,9 @@ const { pool } = require("../config/database");
  * Get all registered players.
  */
 const getAllPlayers = async (req, res) => {
+  // Debugging line to confirm this function is being called
+  console.log("--- GET /api/players route hit ---");
+
   try {
     const sql = "SELECT * FROM players ORDER BY name";
     const result = await pool.query(sql);
