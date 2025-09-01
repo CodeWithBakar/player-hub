@@ -23,7 +23,6 @@ const initializeDatabase = async () => {
     console.log("PostgreSQL database connected and table is ready.");
   } catch (err) {
     console.error("Error initializing PostgreSQL database:", err);
-    // Exit the process if the database connection fails, as the app cannot run without it.
     process.exit(1);
   }
 };
