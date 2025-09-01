@@ -4,10 +4,6 @@ node_modules/
 Environment variables file - DO NOT COMMIT THIS
 .env
 
-SQLite Database File
-database.sqlite
-database.sqlite-journal
-
 Log files
 npm-debug.log*
 yarn-debug.log*
