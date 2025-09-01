@@ -1,29 +1,22 @@
-// Load environment variables from .env file
-require("dotenv").config();
-
 const express = require("express");
 const cors = require("cors");
+require("dotenv").config();
+const initializeDatabase = require("./config/database");
 const playerRoutes = require("./routes/playerRoutes");
 
-// Initialize Express app
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware
-app.use(cors()); // Enable Cross-Origin Resource Sharing
-app.use(express.json()); // Parse JSON request bodies
+app.use(cors());
+app.use(express.json());
+
+// Initialize Database
+initializeDatabase();
 
 // API Routes
-// All routes related to players will be prefixed with /api/players
-app.use("/api/players", playerRoutes);
+app.use("/api", playerRoutes);
 
-// Global Error Handler (simple version)
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).send("Something broke!");
-});
-
-// Start the server
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`Server is running and listening on port ${PORT}`);
 });
