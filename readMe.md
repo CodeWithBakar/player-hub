@@ -436,20 +436,10 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 ### 👨‍💻 **Development Team**
 
-**Your Name**  
-🌐 Portfolio: [yourportfolio.com](https://yourportfolio.com)  
-📧 Email: [your.email@example.com](mailto:your.email@example.com)  
-🐦 Twitter: [@your_twitter](https://twitter.com/your_twitter)  
-💼 LinkedIn: [Your LinkedIn](https://linkedin.com/in/yourprofile)
-
----
-
-### 📢 **Project Links**
-
-🔗 **Live Demo**: [https://player-hub-demo.netlify.app](https://player-hub-demo.netlify.app)  
-📚 **Documentation**: [https://github.com/your-username/player-hub/wiki](https://github.com/your-username/player-hub/wiki)  
-🐛 **Issue Tracker**: [https://github.com/your-username/player-hub/issues](https://github.com/your-username/player-hub/issues)  
-💬 **Discussions**: [https://github.com/your-username/player-hub/discussions](https://github.com/your-username/player-hub/discussions)
+**Abu Bakar**  
+🌐 Portfolio: [https://portfolio-sage-gamma-60.vercel.app](https://portfolio-sage-gamma-60.vercel.app/)  
+📧 Email: [abubakarxdev@gmail.com](mailto:abubakarxdev@gmail.com)   
+💼 LinkedIn: [https://www.linkedin.com/in/abubakarse005/](https://www.linkedin.com/in/abubakarse005/)
 
 ---
 
@@ -457,12 +447,12 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
   <strong>⭐ If you found this project helpful, please consider giving it a star on GitHub! ⭐</strong>
 </p>
 
-<img src="https://img.shields.io/github/stars/your-username/player-hub?style=social" alt="GitHub stars"/>
+<img src="https://img.shields.io/github/stars/CodeWithBakar/player-hub?style=social" alt="GitHub stars"/>
 
 </div>
 
 ---
 
 <div align="center">
-  <sub>Built with ❤️ by the Player Hub team</sub>
+  <sub>Built with ❤️ by Abu Bakar</sub>
 </div>
