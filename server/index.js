@@ -6,7 +6,7 @@ const playerRoutes = require("./routes/playerRoutes");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const HOST = "0.0.0.0";
+
 // Middleware
 app.use(cors());
 app.use(express.json());
@@ -14,6 +14,11 @@ app.use(express.json());
 // API Routes
 app.use("/api", playerRoutes);
 
-app.listen(PORT, HOST, () => {
-  console.log(`Server is running and listening on http://${HOST}:${PORT}`);
+// Health check route (important for Railway)
+app.get("/", (req, res) => {
+  res.send("Player Hub API is running 🚀");
+});
+
+app.listen(PORT, () => {
+  console.log(`✅ Server is running on port ${PORT}`);
 });
