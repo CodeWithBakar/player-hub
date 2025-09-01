@@ -9,7 +9,6 @@
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
     ></script>
-    <!-- Add this inside the <head> tag -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -20,9 +19,41 @@
   <body>
     <nav class="navbar">
       <div class="nav-container">
-        <a href="index.html" class="nav-brand">Player Hub</a>
+        <a href="index.html" class="nav-brand">
+          <!-- SVG Logo -->
+          <svg
+            width="32"
+            height="32"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 2L2 7V17L12 22L22 17V7L12 2Z"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M2 7L12 12L22 7"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M12 12V22"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <span>Player Hub</span>
+        </a>
         <div class="nav-links">
-          <a href="index.html">Videos</a>
+          <a href="index.html">Home</a>
           <a href="register.html">Register</a>
           <a href="players.html">Player List</a>
           <a href="contact.html">Contact</a>
@@ -46,12 +77,13 @@
         </button>
       </div>
       <div class="mobile-nav" id="mobile-nav">
-        <a href="index.html">Videos</a>
+        <a href="index.html">Home</a>
         <a href="register.html">Register</a>
         <a href="players.html">Player List</a>
         <a href="contact.html">Contact</a>
       </div>
     </nav>
+
     <main class="container">
       <h1>Contact Us</h1>
       <form id="contact-form" class="styled-form">
