@@ -1,24 +1,26 @@
 const express = require("express");
-const cors = require("cors");
+const cors = "cors";
 require("dotenv").config();
-require("./config/database");
+const { initializeDatabase } = require("./config/database");
 const playerRoutes = require("./routes/playerRoutes");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+const HOST = "0.0.0.0";
 
 // Middleware
-app.use(cors());
 app.use(express.json());
 
 // API Routes
 app.use("/api", playerRoutes);
 
-// Health check route (important for Railway)
-app.get("/", (req, res) => {
-  res.send("Player Hub API is running 🚀");
-});
+const startServer = async () => {
+  // Ensure the database is initialized before the server starts
+  await initializeDatabase();
 
-app.listen(PORT, () => {
-  console.log(`✅ Server is running on port ${PORT}`);
-});
+  app.listen(PORT, HOST, () => {
+    console.log(`Server is running and listening on http://${HOST}:${PORT}`);
+  });
+};
+
+startServer();
