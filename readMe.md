@@ -18,8 +18,7 @@
   </p>
 
   <!-- Screenshot placeholder -->
-  <img src="https://github.com/CodeWithBakar/player-hub/client/assets/home.png" alt="Player Hub Screenshot" style="border-radius: 8px; margin: 20px 0;"/>
-
+  <img src="https://raw.githubusercontent.com/CodeWithBakar/player-hub/main/client/assets/home.png" alt="Home Page" width="400"/>
 </div>
 
 ---
