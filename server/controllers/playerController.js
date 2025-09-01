@@ -4,12 +4,19 @@ const { pool } = require("../config/database");
  * Get all registered players.
  */
 const getAllPlayers = async (req, res) => {
-  // Debugging line to confirm this function is being called
-  console.log("--- GET /api/players route hit ---");
+  console.log("=== getAllPlayers function called ===");
+  console.log("Request method:", req.method);
+  console.log("Request path:", req.path);
 
   try {
+    console.log("Executing database query...");
     const sql = "SELECT * FROM players ORDER BY name";
     const result = await pool.query(sql);
+    console.log(
+      "Database query successful, rows returned:",
+      result.rows.length
+    );
+
     res.json({ players: result.rows });
   } catch (err) {
     console.error("Error fetching players:", err);
