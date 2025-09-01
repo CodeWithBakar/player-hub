@@ -1,9 +1,4 @@
-# This file configures proxy redirects for Netlify.
-# It tells Netlify to forward any request starting with /api/
-# to your live backend server on Railway.
-
 [[redirects]]
   from = "/api/*"
-  to = "player-hub-production.up.railway.app/api/:splat" 
+  to = "https://player-hub-production.up.railway.app/api/:splat"
   status = 200
-  force = true
