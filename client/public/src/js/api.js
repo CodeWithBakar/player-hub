@@ -1,4 +1,4 @@
-const API_BASE_URL = "/api";
+const API_BASE_URL = "https://player-hub-production.up.railway.app/api";
 
 /**
  * Fetches all players from the server.
