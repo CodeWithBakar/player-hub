@@ -16,3 +16,4 @@ Editor directories and files
 .ntvs
 *.njsproj
 *.sln
+postgres-data
