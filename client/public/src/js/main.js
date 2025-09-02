@@ -43,11 +43,11 @@ function initVideoPage() {
 
   // Your list of video IDs
   const videoIds = [
-    "oSIDK_qMxqM",
-    "LavH7audJww",
-    "AlXgSXIpchc",
-    "X918VVC1NTA",
-    "Dw4L6qR46ik",
+    "1CB_xGYibQU",
+    "IHbPUpn26x0",
+    "lA-i7pVTtdQ",
+    "cWrPe1t5V2g",
+    "Bj_1GpQtsgI",
     "SdTTEhOlsu0",
     "tAlSp2yTvAA",
     "iEvhfCx1u2A",
