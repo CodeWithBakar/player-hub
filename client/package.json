@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "description": "Frontend UI for the Player Hub application.",
   "scripts": {
-    "start": "live-server public --port=8080"
+    "start": "vite"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "live-server": "^1.2.2"
+    "vite": "^5.3.3"
   }
 }
